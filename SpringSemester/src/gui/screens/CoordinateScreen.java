@@ -54,7 +54,7 @@ public class CoordinateScreen extends Screen
 		viewObjects.add(area);
 		
 		bowser = new Graphic(30,30,.5, "resources/"
-				+ "sampleImages/bowser.png"); 
+				+ "sampleImages/mole.png"); 
 		viewObjects.add(bowser);
 	}
 
