@@ -22,6 +22,7 @@ implements Runnable{
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
 		timeLeft = 30.0;
+		//when making Simon, creating a thread like this is necessary, since simon's screen changes
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -36,13 +37,6 @@ implements Runnable{
 		viewObjects.add(timeLabel);
 		viewObjects.add(label);
 	}
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * This method is a placeholder until our "partner"
 	 * finishes the design of Players. For the time being,
@@ -66,9 +60,7 @@ implements Runnable{
 		changeText("Set...");
 		changeText("Go!");
 		label.setText("");
-		//since this is a timed game, we will use a while 
-		//loop. This is not necessary for games that 
-		//aren't timed
+		// Loop is for timed games only
 		while(timeLeft > 0){
 			updateTimer();
 			updateAllMoles();
@@ -77,7 +69,7 @@ implements Runnable{
 	}
 
 	private void appearNewMole() {
-		double chance = .1*(60-timeLeft)/60;
+		double chance = .15*(60-timeLeft)/60;
 		if(Math.random() < chance){
 			//create a mole
 			final MoleInterface mole = getAMole();
@@ -123,13 +115,12 @@ implements Runnable{
 		timeLabel.setText(""+(int)(timeLeft*10)/10.0);
 		
 	}
-
+	//use this method in Simon
 	private void changeText(String string) {
 		label.setText(string);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
