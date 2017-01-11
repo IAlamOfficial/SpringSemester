@@ -13,6 +13,7 @@ import gui.components.TextArea;
 import gui.components.Action;
 import gui.components.TextLabel;
 import gui.components.Visible;
+import gui.sampleGames.MovingComponent;
 
 public class CoordinateScreen extends Screen 
                implements MouseMotionListener{
@@ -56,6 +57,12 @@ public class CoordinateScreen extends Screen
 		bowser = new Graphic(30,30,.5, "resources/"
 				+ "sampleImages/mole.png"); 
 		viewObjects.add(bowser);
+		
+		//moving object code
+		
+		MovingComponent c = new MovingComponent(20,20,100,100);
+		viewObjects.add(c);
+		c.play();
 	}
 
 	public void mouseDragged(MouseEvent e) {
