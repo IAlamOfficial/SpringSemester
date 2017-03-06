@@ -31,19 +31,19 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 
 	}
 	
-	public static void initAllObjects(ArrayList<Visible> viewObjects ){
-		addButtons();
-		progress = getProgress();
-		label = new TextLabel(130,230,300,40,"Let's play Simon!");
-		sequence = new ArrayList<MoveInterfaceAlam>();
-		//add 2 moves to start
-		lastSelectedButton = -1;
-		sequence.add(randomMove());
-		sequence.add(randomMove());
-		roundNumber = 0;
-		viewObjects.add(progress);
-		viewObjects.add(label);
-	}
+//	public static void initAllObjects(ArrayList<Visible> viewObjects ){
+//		addButtons();
+//		progress = getProgress();
+//		label = new TextLabel(130,230,300,40,"Let's play Simon!");
+//		sequence = new ArrayList<MoveInterfaceAlam>();
+//		//add 2 moves to start
+//		lastSelectedButton = -1;
+//		sequence.add(randomMove());
+//		sequence.add(randomMove());
+//		roundNumber = 0;
+//		viewObjects.add(progress);
+//		viewObjects.add(label);
+//	}
 
 	private static MoveInterfaceAlam randomMove() {
 		// TODO Auto-generated method stub
@@ -63,8 +63,13 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 		
 	}
 
-	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		
 	}
