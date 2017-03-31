@@ -27,16 +27,6 @@ implements Runnable{
 		play.start();
 	}
 
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
-		moles = new ArrayList<MoleInterface>();
-		player = getAPlayer();
-		label = new TextLabel(350,220,100,40,"Sample Text");
-		timeLabel = new TextLabel(360,40,80,40,"30.0");
-		viewObjects.add(player);
-		viewObjects.add(timeLabel);
-		viewObjects.add(label);
-	}
 	/**
 	 * This method is a placeholder until our "partner"
 	 * finishes the design of Players. For the time being,
@@ -123,6 +113,18 @@ implements Runnable{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+		moles = new ArrayList<MoleInterface>();
+		player = getAPlayer();
+		label = new TextLabel(350,220,100,40,"Sample Text");
+		timeLabel = new TextLabel(360,40,80,40,"30.0");
+		viewObjects.add(player);
+		viewObjects.add(timeLabel);
+		viewObjects.add(label);
+		
 	}
 
 }

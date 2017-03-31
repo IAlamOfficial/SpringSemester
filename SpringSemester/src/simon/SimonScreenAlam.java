@@ -31,7 +31,7 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 
 	}
 	
-	public static void initAllObjects(ArrayList<Visible> viewObjects ){
+	public void initAllObjects(ArrayList<Visible> viewObjects ){
 		addButtons();
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
@@ -44,6 +44,7 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 //		viewObjects.add(progress);
 		viewObjects.add(label);
 	}
+
 
 	private static MoveInterfaceAlam randomMove() {
 		// TODO Auto-generated method stub
@@ -63,10 +64,10 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 		
 	}
 
-	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
