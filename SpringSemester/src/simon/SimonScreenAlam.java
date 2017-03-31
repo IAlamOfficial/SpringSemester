@@ -41,7 +41,7 @@ public class SimonScreenAlam extends ClickableScreen implements Runnable {
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		viewObjects.add(progress);
+//		viewObjects.add(progress);
 		viewObjects.add(label);
 	}
 
