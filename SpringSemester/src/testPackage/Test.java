@@ -13,10 +13,11 @@ public class Test {
 		x+=1;
 	}
 	public static int change(int x){
-		if(x<1)
+		if(x<0)
 			return -1;
 		else
 			return change(x/2)+1;
 	}
+
 
 }
