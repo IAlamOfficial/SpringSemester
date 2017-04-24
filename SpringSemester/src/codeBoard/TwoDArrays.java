@@ -1,5 +1,7 @@
 package codeBoard;
 
+import java.util.ArrayList;
+
 /**
  * This class provides functions to search in arrays.
  * 
@@ -68,7 +70,19 @@ public class TwoDArrays {
 */
 
     public static String[][] twoCharsTo2D(String[][] table, String[] words){
-        return table;
+        boolean empty = false;
+    	int w = 0;
+    	for(int i = 0; i<table.length; i++){
+        	for(int j = 0; j < table[i].length; j++){
+        		if(w < words.length){
+        			table[i][j] = words[w].substring(0,2);
+        		}else{
+        			table[i][j] = "$$";
+        		}
+        		w++;
+        	}
+        }
+    	return table;
     }
 
 /**
@@ -88,7 +102,31 @@ Preconditions:
 2.  roster.length == grades.length
 */
     public static String bestAverage(String[] roster, int[][] grades){
-        return "Nobody";
+        int bestAvg = -1;
+        double bestavg = 0.0;
+        int cur;
+        double avg;
+        boolean check = false;
+        for (int i = 0; i < roster.length; i++){
+        	cur = 0;
+        	for(int j = 0; j < grades[i].length; j++){
+        		cur += grades[i][j];
+        	}
+        	avg = cur/grades[i].length;
+        	if(avg > bestavg){
+        		bestAvg = i; 
+        		bestavg = avg;
+        		check = false;
+        	}else if(avg == bestavg){
+        		check = true;
+        	}
+        }
+        
+        if(bestAvg < 0 || check == true){
+        	return "Nobody";
+        }else{
+        	return roster[bestAvg];
+        }
     }
     
     /**
@@ -118,7 +156,31 @@ Preconditions:
 		  3.  0 <= row <= mat.length-1 and 0 <= col <= mat[0].length-1
 */
     public static int[][] removeRowCol(int[][] mat, int row, int col){
-        int[][] nothing = {{},{}};
+    	int rowLim = mat.length - 1;
+    	int colLim = mat[0].length - 1;
+    	int colcur = 0;
+    	int rowcur = 0;
+    	
+    	
+    	int[][] nothing = new int[rowLim][colLim];
+        for(int i = 0; i < mat.length; i++){
+        	if(i != row){
+        		System.out.println("i worked and it is "+ i);
+        		colcur = 0;
+        		for(int j = 0; j < mat[i].length; j++){
+	        		if(j != col){
+	        			System.out.println(" - j worked and it is "+ j);
+	        			nothing[rowcur][colcur] = mat[i][j];
+	        			colcur++;
+	        		}
+	        		
+	        	}
+	        	
+	        	rowcur++;
+        	}
+        }
+        	
+        
         return nothing;
     }
 
@@ -143,8 +205,25 @@ Preconditions:
     getNeighbors(g, 2, 2) returns {4, 2, 1, 9, 3}
 */
     public static int[] getNeighbors(int[][] grid, int row, int col){
-        int[] nothing ={};
-        return nothing;
+        int[] nothing = new int[8];
+        int tally = 0;
+    	for(int i = row-1; i <= row+1; i++){
+    		System.out.println("entered loop I is : " + i);	
+    		for(int j = col-1; j <= col+1; j++){
+        		System.out.println("*-entered 2nd loop J is : " + j);
+    			if(((i >= 0 && i < grid.length) && (j >= 0 && j < grid[i].length)) && !(row == i && col == j)){
+    	  			System.out.println("I is : " + i + " and j is " + j + " and tally is: "+ tally);
+    	  			nothing[tally] = grid[i][j];
+    	  			tally++;
+    	  		}
+      		}
+        }
+    	int[] perm = new int[tally];
+    	for(int x = 0; x < perm.length; x++){
+    		perm[x] = nothing[x];
+    	}
+    	
+        return perm;
     }
 
 }
